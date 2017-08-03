@@ -1,0 +1,48 @@
+	@charset "UTF-8";
+/* CSS Document */
+.expanded_cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+   /* width:900px;
+    height:500px;*/
+    background-position: 0px 0px;
+    pointer-events: none;
+}
+#clickThrough{
+    position: absolute;
+	bottom: 0px;
+	left: 0px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2500;
+}
+
+
+.text {
+    opacity: 0;
+    top: 5px;
+    display: none;
+}
+#expanded_container{
+    position: absolute;
+    top: 0px;
+	left: 0px;
+    overflow: hidden!important;
+    display: block;
+    z-index: 2200;
+
+}
+
+#close_btn{
+    background: url(../images/expanded/close.png);
+  
+}
+
+#exp_text1 {
+    background-image: url("../images/expanded/exp_text1.png")
+}
+#bg {
+    background-image: url("../images/expanded/bg.jpg");
+    display: none;
+}

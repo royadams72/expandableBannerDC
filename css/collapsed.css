@@ -1,0 +1,85 @@
+	@charset "UTF-8";
+/* CSS Document */
+
+
+body,  body * {
+	vertical-align: baseline;
+	height: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+}
+#border {
+    background-image: url("../images/frame.png");
+    position: relative;
+    z-index: 2
+}
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+   /* width: 900px;
+    height: 250px;*/
+    background-position: 0px 0px
+}
+#container_dc {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: auto;
+	width: inherit;
+	height: inherit;
+}
+
+#expandAd {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	top: 0px;
+	left: 0px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 10000;
+}
+
+#collapsed_container{
+    background-color: #fff;
+    
+    display: block;
+    z-index: 8000;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden!important;
+}
+
+.text {
+    opacity: 0;
+    top: 5px;
+    display: none;
+}
+
+#text1 {
+    background-image: url("../images/text1.png")
+}
+
+#touch_points {
+    background-image: url("../images/touch_points.png");
+    opacity: 0;
+    display: none;
+}
+
+#touch_points_txt {
+    background-image: url("../images/touch_points_txt.png")
+}
+#bg1 {
+    background-image: url("../images/bg1.jpg");
+    display: none;
+}
+
+
+
+#arrow {
+    background-image: url("../images/cta-arrow.png");
+    top: 0
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Expandable Ad</title>
+<script src="http://s0.2mdn.net/ads/studio/Enabler.js" type="text/javascript"></script>  
+<style>
+    #ad_container{
+        display:none;
+    } 
+    
+     #expanded_container{
+        display:none;
+    } 
+    </style>
+ <script language="javascript">
+    
+var BANNER = BANNER || {};
+var dcFunctions;
+    BANNER.width = 900; BANNER.height = 250; BANNER.expandHeight = 500; //BANNER.expandWidth = 500
+    BANNER.isExpanded = false;
+    BANNER.politeManifest = ["css/collapsed.css", "https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js",  "js/Double_Click_Functions.js", "js/collapsed.js", "js/expanded.js"];
+    Enabler.setExpandingPixelOffsets(0, 0, BANNER.width, BANNER.expandHeight);
+    BANNER.initExpanded = function(){
+        BANNER.loadFiles(["css/expanded.css"], function () { expandedComplete();});
+     }
+    
+     function politeLoadComplete(){
+         //Create classes for ad - Double click functions can 'plug in' with added advert assets
+         dcFunctions = new DCFunctions(BANNER.collapsedAd, BANNER.expandedAd);
+         BANNER.collapsedAd.init(BANNER.width, BANNER.height, collapsed_container);
+         BANNER.expandedAd.initAd(BANNER.width, BANNER.expandHeight, expanded_container);
+     }
+
+      function expandedComplete(){
+         BANNER.expandedAd.displayAssets();
+      }
+</script>   
+
+</head>
+
+<body style="background-color:#ffffff">
+    <!--Collasped-->
+        <div id="container_dc"><!--container_dc needs to be animated on expansion as well-->
+     <div id="collapsed_container">
+           <div id="border"></div>
+            <div id="bg1" class="bg cover"></div>
+            <div id="text1" class="text cover"></div>
+            <div id="arrow" class="text cover"></div>
+            <div id="touch_points" class="cover"></div>
+         <div id="touch_points_txt" class="text cover"></div>
+       </div>
+      <!--End Collasped-->
+     <!--Expanded-->
+    <div id="expanded_container">
+    <button id="clickThrough"></button>
+        <div id="exp_border"></div>
+            <div id="bg" class="bg cover"></div>
+            <div id="exp_text1" class="text cover"></div>  
+
+    </div>
+ <!--End Expanded--> 
+    </div>
+       <script src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
+    <script src="js/dcInit.js"></script>
+</body>
+</html>
