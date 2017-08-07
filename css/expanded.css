@@ -11,13 +11,12 @@
 }
 #clickThrough{
     position: absolute;
-	bottom: 0px;
-	left: 0px;
-	cursor: pointer;
-	opacity: 0;
-	z-index: 2500;
+		bottom: 0px;
+		left: 0px;
+		cursor: pointer;
+		opacity: 0;
+		z-index: 2500;
 }
-
 
 .text {
     opacity: 0;
@@ -27,22 +26,22 @@
 #expanded_container{
     position: absolute;
     top: 0px;
-	left: 0px;
+		left: 0px;
     overflow: hidden!important;
     display: block;
     z-index: 2200;
-
 }
 
 #close_btn{
     background: url(../images/expanded/close.png);
-  
 }
-
-#exp_text1 {
+/*#testload-img{
+	display: block;
+}*/
+/*#exp_text1 {
     background-image: url("../images/expanded/exp_text1.png")
-}
-#bg {
+}*/
+/*#bg {
     background-image: url("../images/expanded/bg.jpg");
     display: none;
-}
+}*/

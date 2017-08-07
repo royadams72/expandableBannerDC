@@ -6,12 +6,12 @@ if (Enabler.isInitialized()) {
     Enabler.addEventListener(studio.events.StudioEvent.INIT, initDC);
 }
 //Run when Enabler is ready
-function initDC(){		
+function initDC(){
     if(Enabler.isPageLoaded()){
         politeInit();
     }else{
     Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED, politeInit);
-    } 
+    }
 }
 
 function politeInit(){
@@ -19,8 +19,8 @@ function politeInit(){
    loadFiles(BANNER.politeManifest, function () { politeLoadComplete();})
 
 }
-    
-function loadFiles(arr, onComplete){       
+
+function loadFiles(arr, onComplete){
 var loadFileIndex = 0;
 var fileType;
 var files = arr
@@ -31,7 +31,7 @@ function loadExtScripts() {
     //Load in external Javascript file
     var fileArray = files[loadFileIndex].split(".");
     var fileType = fileArray[fileArray.length-1];
-    var extScript;    
+    var extScript;
     if(fileType == "js"){
        extScript = document.createElement("script");
        extScript.setAttribute("type", "text/javascript");
@@ -48,10 +48,10 @@ function loadExtScripts() {
        extScript.onload = function() {
             loadFileHandler();
         }
-    document.getElementsByTagName("head")[0].appendChild(extScript); 
+    document.getElementsByTagName("head")[0].appendChild(extScript);
     }
 }
-    
+
 loadExtScripts();
 
 /**
@@ -66,8 +66,34 @@ function loadFileHandler(){
         }else {
             onComplete();
         }
-      }	
+      }
     }
   BANNER.loadFiles = loadFiles
-    
+
+
+
+  function loadSecondaryImages(object, callback) {
+      // console.log(String(":: LOADER - secondary loading " + object.url + " ::"));
+      var holder = document.getElementById(object.div),
+          image = new Image();
+          image.onload = function() {
+          holder.style.backgroundImage = "url('" + image.src + "')";
+          callback();
+          console.log(String(":: LOADER - successfully secondary loaded " + image.src + " ::"));
+      };
+      image.src = object.url;
+  }
+  function loadImages(urls, onComplete) {
+      var l = urls.length,
+          loaded = 0,
+          checkSecondaryLoadProgress = function() { if (++loaded === l && onComplete) onComplete(); };
+      for (i = 0; i < l; i++) loadSecondaryImages(urls[i], checkSecondaryLoadProgress); //Politely load images
+  }
+
+
+BANNER.loadImages = loadImages;
+
+
+
+
 })()
